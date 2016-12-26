@@ -19,7 +19,7 @@ begin
 				sum:= sum + x;
 			end
 	until (x = 0);
-
+  
 	writeln('Number of positive integers: ', p);
 	writeln('Number of negative integers: ', n);
 	writeln('Sum of positive integers is: ', sum);
