@@ -7,7 +7,7 @@ begin
 	p   := 0;
 	sum := 0;
 
-	writeln('Input positive or negative integers, 0 to end: ');
+	writeln('Input positive or negative integers, input "0" to end: ');
 
 	repeat
 		readln(x);
