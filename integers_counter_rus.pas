@@ -1,6 +1,6 @@
 Program integers_counter;
 
-var x, n, p, zero, sump, sumn, counter: integer;
+var x, n, p, zero, upto, sump, sumn, counter: integer;
 
 begin
 	n    	:= 0;
@@ -8,30 +8,41 @@ begin
 	zero 	:= 0;
 	sumn 	:= 0;
 	sump 	:= 0;
-	counter := 1;
+	counter := 0;
 
-	writeln('Введите 10 положительных или отрицательных чисел: ');
-
+	write('Введіть кількість чисел: ');
+  	readln(upto);  {Максимальна килькисть чисел}
+  	writeln('Введіть ваші числа (цілі додатні або від"ємні числа)');
+  
 	repeat
 		readln(x);
+		{Якщо введене число дорівнює 0, то додамо 1 до кількості нулів}
 		if x = 0 then inc(zero);
+		{Якщо введене число менше 0, то додамо 1 до кількості від'ємних
+		чисел, і додамо це число до сумми від'ємних чисел}
 		if x < 0 then
 			begin
 				inc(n);
 				sumn := sumn + x;
 			end;
+		{Якщо введене число більше 0, то додамо 1 до кількості додатних
+		чисел, і додамо це число до сумми додатніх чисел}
 		if x > 0 then
 			begin
 				inc(p);
 				sump := sump + x;
 			end;
-		inc(counter);
-	until (counter = 10);
+		inc(counter);    {Лічільник циклу}
+	until (counter = upto);
 
-	writeln('Количество положительных: ', p);
-	writeln('Количество отрицательных: ', n);
-	writeln('Количество нулей: ', zero);
-	writeln('Сумма положительных чисел: ', sump);
-	writeln('Сумма отрицательных чисел: ', sumn);
+	writeln('Кількість додатніх чисел: ', p);
+	writeln('Кількість від"ємних чисел: ', n);
+	writeln('Кількість нулів: ', zero);
+	{Якщо сумма додатних чисел бильше нуля, то надрукувати сумму}
+	if sump > 0 then 
+	  writeln('Сумма додатніх чисел: ', sump);
+  {Якщо сумма від"ємних чисел менше нуля, то надрукувати сумму}
+	if sumn < 0 then 
+	  writeln('Сумма від"ємних чисел: ', sumn);
 	readln
 end.
